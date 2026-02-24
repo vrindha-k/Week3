@@ -1,112 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Intel Sustainability Timeline</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Intel Team Sustainability Summit</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Noto Sans', sans-serif;
+}
+
+body{
+    background:#eef1f5;
+}
+
+/* HERO */
+.hero{
+    background:
+        linear-gradient(rgba(10,50,120,0.78), rgba(10,60,140,0.75)),
+        url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1400&q=80")
+        center/cover no-repeat;
+    text-align:center;
+    padding:80px 20px;
+    color:white;
+}
+
+.intel-logo img{
+    width:130px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:44px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.underline{
+    width:70px;
+    height:3px;
+    background:#4da6ff;
+    margin:18px auto;
+    border-radius:4px;
+}
+
+.subtitle{
+    font-size:18px;
+    opacity:0.95;
+}
+
+/* MAIN */
+.main{
+    max-width:700px;
+    margin:40px auto;
+    padding:0 20px 80px;
+}
+
+/* Attendance */
+.attendance{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.attendance strong{
+    color:#1a56db;
+    font-size:22px;
+}
+
+.progress-bar{
+    width:75%;
+    height:12px;
+    background:#d5dbe6;
+    margin:15px auto;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+#progressFill{
+    height:100%;
+    width:0%;
+    background:#1a56db;
+    transition:0.4s;
+}
+
+/* Card */
+.card{
+    background:white;
+    border-radius:18px;
+    box-shadow:0 4px 18px rgba(0,0,0,0.07);
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+/* Welcome */
+.welcome{
+    background:#dbeafe;
+    color:#1e3a8a;
+    padding:18px;
+    font-weight:700;
+    text-align:center;
+}
+
+.hidden{display:none;}
+
+/* Check-in */
+.checkin-box{
+    padding:30px;
+    background:#f8f9fb;
+}
+
+.checkin-title{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.checkin{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.checkin input,
+.checkin select{
+    flex:1;
+    min-width:140px;
+    padding:12px 15px;
+    border-radius:10px;
+    border:1.5px solid #d4d9e3;
+    font-size:14px;
+}
+
+.checkin button{
+    background:#1a3f8f;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.checkin button:hover{
+    background:#123070;
+}
+
+/* Team Attendance */
+.team-title{
+    text-align:center;
+    font-weight:700;
+    padding:25px 0 10px;
+    color:#1a3a6b;
+}
+
+.teams{
+    display:flex;
+    gap:16px;
+    padding:20px 25px 30px;
+}
+
+.team-card{
+    flex:1;
+    padding:22px;
+    border-radius:14px;
+    text-align:center;
+    font-weight:600;
+}
+
+.team-card span{
+    display:block;
+    margin-top:8px;
+    font-size:26px;
+    font-weight:700;
+}
+
+.water{background:#dbeafe;}
+.netzero{background:#d1fae5;}
+.renew{background:#fef3c7;}
+
+/* Celebration */
+.celebration{
+    background:linear-gradient(135deg,#1a3f8f,#2979d4);
+    color:white;
+    padding:20px;
+    border-radius:16px;
+    text-align:center;
+    font-weight:600;
+}
+
+@media(max-width:560px){
+    .hero h1{font-size:28px;}
+    .teams{flex-direction:column;}
+    .checkin{flex-direction:column;}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO SECTION -->
-  <header>
-    <div class="hero-content">
-
-      <!-- LOCAL INTEL LOGO -->
-      <img
-        class="intel-logo"
-        src="img/intel-header-logo.svg"
-        alt="Intel Logo"
-      >
-
-      <h1>
-        SUSTAINABILITY<br>
-        THROUGH THE AGES
-      </h1>
-
-      <div class="underline"></div>
-
-      <p>
-        Explore Intel's journey through time, discovering how our
-        commitment to innovation has shaped a more sustainable future
-        for technology and our planet.
-      </p>
-
+<section class="hero">
+    <!-- MAKE SURE intel-header-logo.svg IS IN SAME FOLDER -->
+    <div class="intel-logo">
+        <img src="intel-header-logo.svg" alt="Intel Logo">
     </div>
-  </header>
+    <h1>TEAM SUSTAINABILITY SUMMIT</h1>
+    <div class="underline"></div>
+    <p class="subtitle">🌿 Check-in system for sustainability event attendees</p>
+</section>
 
-  <!-- TIMELINE -->
-  <section class="timeline">
+<section class="main">
 
-    <div class="card">
-      <h2>1968</h2>
-      <h3>Intel Founded</h3>
-      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=60" alt="">
-      <p>Intel is founded by Robert Noyce and Gordon Moore.</p>
+<div class="attendance">
+    <p>👥 Attendance: <strong id="totalCount">0</strong> / 50</p>
+    <div class="progress-bar">
+        <div id="progressFill"></div>
     </div>
+</div>
 
-    <div class="card">
-      <h2>1971</h2>
-      <h3>First Microprocessor</h3>
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60" alt="">
-      <p>Intel releases the 4004, the world's first commercial microprocessor.</p>
+<div class="card">
+    <div id="welcomeMessage" class="welcome hidden"></div>
+
+    <div class="checkin-box">
+        <p class="checkin-title">Attendee Check-In</p>
+        <div class="checkin">
+            <input type="text" id="nameInput" placeholder="Enter name...">
+            <select id="teamSelect">
+                <option value="">Select Team...</option>
+                <option value="Water Wise">Team Water Wise</option>
+                <option value="Net Zero">Team Net Zero</option>
+                <option value="Renewables">Team Renewables</option>
+            </select>
+            <button onclick="checkIn()">👤 Check In</button>
+        </div>
     </div>
+</div>
 
-    <div class="card">
-      <h2>1978</h2>
-      <h3>8086 Processor</h3>
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60" alt="">
-      <p>Launch of the 8086 processor establishing the x86 architecture.</p>
+<div class="card">
+    <h3 class="team-title">Team Attendance</h3>
+    <div class="teams">
+        <div class="team-card water">🌊 Team Water Wise<span id="waterCount">0</span></div>
+        <div class="team-card netzero">🌱 Team Net Zero<span id="netZeroCount">0</span></div>
+        <div class="team-card renew">⚡ Team Renewables<span id="renewCount">0</span></div>
     </div>
+</div>
 
-    <div class="card">
-      <h2>1985</h2>
-      <h3>386 Processor</h3>
-      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60" alt="">
-      <p>Intel introduces the 386 processor with 32-bit architecture.</p>
-    </div>
+<div id="celebrationMessage" class="celebration hidden"></div>
 
-    <div class="card">
-      <h2>2006</h2>
-      <h3>Peak GHG Emissions</h3>
-      <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=60" alt="">
-      <p>Intel begins major investments in emissions reduction.</p>
-    </div>
+</section>
 
-    <div class="card">
-      <h2>2020</h2>
-      <h3>RISE Strategy</h3>
-      <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=60" alt="">
-      <p>Intel launches its RISE sustainability strategy and 2030 goals.</p>
-    </div>
+<script>
+let total=0, water=0, netZero=0, renew=0;
+const GOAL=50;
 
-    <div class="card">
-      <h2>2022</h2>
-      <h3>Net-Zero By 2040</h3>
-      <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=60" alt="">
-      <p>Intel commits to achieving net-zero emissions globally.</p>
-    </div>
+function loadData(){
+    const saved=JSON.parse(localStorage.getItem("attendees"))||[];
+    saved.forEach(p=>addPerson(p.name,p.team,false));
+}
 
-    <div class="card">
-      <h2>2023</h2>
-      <h3>Renewable Electricity</h3>
-      <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=800&q=60" alt="">
-      <p>Intel reaches 99% renewable electricity usage worldwide.</p>
-    </div>
+function savePerson(name,team){
+    const saved=JSON.parse(localStorage.getItem("attendees"))||[];
+    saved.push({name,team});
+    localStorage.setItem("attendees",JSON.stringify(saved));
+}
 
-    <div class="card">
-      <h2>2024</h2>
-      <h3>Sustainability Summit</h3>
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=60" alt="">
-      <p>Intel hosts its first Sustainability Summit.</p>
-    </div>
+function checkIn(){
+    const name=document.getElementById("nameInput").value.trim();
+    const team=document.getElementById("teamSelect").value;
+    if(!name||!team){alert("Enter name and select team.");return;}
+    if(total>=GOAL){alert("Maximum reached!");return;}
+    addPerson(name,team,true);
+    document.getElementById("nameInput").value="";
+    document.getElementById("teamSelect").value="";
+}
 
-  </section>
+function addPerson(name,team,save=true){
+    total++;
+    if(team==="Water Wise")water++;
+    if(team==="Net Zero")netZero++;
+    if(team==="Renewables")renew++;
 
-  <p class="footer-text">
-    Scroll to view timeline | Hover over cards to learn more!
-  </p>
+    document.getElementById("totalCount").innerText=total;
+    document.getElementById("waterCount").innerText=water;
+    document.getElementById("netZeroCount").innerText=netZero;
+    document.getElementById("renewCount").innerText=renew;
+    document.getElementById("progressFill").style.width=(total/GOAL*100)+"%";
+
+    const welcome=document.getElementById("welcomeMessage");
+    welcome.classList.remove("hidden");
+    welcome.innerText="🎉 Welcome, "+name+" from Team "+team+"!";
+
+    if(total>=GOAL){
+        const scores={"Water Wise":water,"Net Zero":netZero,"Renewables":renew};
+        const winner=Object.keys(scores).reduce((a,b)=>scores[a]>=scores[b]?a:b);
+        const cel=document.getElementById("celebrationMessage");
+        cel.classList.remove("hidden");
+        cel.innerHTML="🏆 Goal reached! Congratulations to <strong>Team "+winner+"</strong>!";
+    }
+
+    if(save)savePerson(name,team);
+}
+
+loadData();
+</script>
 
 </body>
 </html>
